@@ -71,6 +71,12 @@ if (ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION === 'site') {
       code: 'UA-72788897-6',
     },
   ]);
+  plugins.push([
+    'umi-plugin-pro',
+    {
+      serverUrl: 'https://5d0c93555deb4b00081f56e2--ant-design-pro.netlify.com',
+    },
+  ]);
 }
 
 const uglifyJSOptions =
