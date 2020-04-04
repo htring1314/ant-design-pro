@@ -1,6 +1,7 @@
 import { PageHeaderWrapper } from '@ant-design/pro-layout';
 import React, { useState, useEffect } from 'react';
-import { Spin, Button, Form, TimePicker } from 'antd';
+import { Spin, Button, Form, TimePicker, DatePicker } from 'antd';
+import moment from 'moment';
 import styles from './index.less';
 
 const formItemLayout = {
@@ -15,23 +16,34 @@ const formItemLayout = {
   },
 };
 
+// 时间选择格式
+const timeFormat = 'HH:mm';
+
 function UseState(props) {
   const {
     form: { getFieldDecorator },
   } = props;
   const [submiting, setSubmiting] = useState(false);
-  const [count, setCount] = useState(1);
+  const [startTime, setStartTime] = useState(moment());
+  const [endTime, setEndTime] = useState(moment());
   useEffect(() => {}, []);
 
   const handleSubmit = e => {
-    console.log('sssss');
     setSubmiting(true);
     const { form } = props;
     e.preventDefault();
     form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log(values);
         setTimeout(() => {
+          const endT = values.endTime;
+          const startT = values.startTime;
+          if (startT > endT) {
+            setEndTime(startT);
+            setStartTime(endT);
+          } else {
+            setStartTime(startT);
+            setEndTime(endT);
+          }
           setSubmiting(false);
         }, 1000);
       }
@@ -43,8 +55,16 @@ function UseState(props) {
     const { form } = props;
     form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log(values);
         setTimeout(() => {
+          const endT = values.endTime;
+          const startT = values.startTime;
+          if (startT > endT) {
+            setEndTime(startT);
+            setStartTime(endT);
+          } else {
+            setStartTime(startT);
+            setEndTime(endT);
+          }
           setSubmiting(false);
         }, 1000);
       }
@@ -59,16 +79,33 @@ function UseState(props) {
     >
       <div style={{ paddingTop: 100, textAlign: 'center' }}>
         <Form onSubmit={handleSubmit} hideRequiredMark style={{ marginTop: 8 }}>
-          <Form.Item {...formItemLayout}>{getFieldDecorator('time')(<TimePicker />)}</Form.Item>
+          <Form.Item {...formItemLayout}>
+            {getFieldDecorator('startTime')(
+              <TimePicker value={startTime} format={timeFormat} minuteStep={15} secondStep={60} />,
+            )}
+            ~
+            {getFieldDecorator('endTime')(
+              <TimePicker value={endTime} format={timeFormat} minuteStep={15} secondStep={60} />,
+            )}
+          </Form.Item>
+          <Form.Item {...formItemLayout}>
+            {getFieldDecorator('startDate')(<DatePicker />)}~
+            {getFieldDecorator('endDate')(<DatePicker />)}
+          </Form.Item>
+          <Form.Item>
+            <Button type="primary" htmlType="submit">
+              是时候：{startTime.format(timeFormat)}
+            </Button>
+            <Button
+              loading={submiting}
+              type="danger"
+              onClick={() => manSubmit()}
+              className={styles.rightButton}
+            >
+              手动提交：{endTime.format(timeFormat)}
+            </Button>
+          </Form.Item>
         </Form>
-        <Form.Item>
-          <Button type="primary" htmlType="submit" loading={submiting}>
-            是时候：{count}
-          </Button>
-          <Button type="danger" onClick={() => manSubmit()}>
-            手动提交
-          </Button>
-        </Form.Item>
       </div>
     </PageHeaderWrapper>
   );
