@@ -47,4 +47,11 @@ export default {
   'menu.editor.flow': '流程编辑器',
   'menu.editor.mind': '脑图编辑器',
   'menu.editor.koni': '拓扑编辑器',
+  'menu.hooks': 'Hooks',
+  'menu.hooks.state': 'UseState',
+  'menu.hooks.effect': 'UseEffect',
+  'menu.hooks.layoutEffect': 'UseLayoutEffect',
+  'menu.hooks.callback': 'UseCallBack',
+  'menu.hooks.ref': 'UseRef',
+  'menu.hooks.memo': 'UseMemo',
 };
