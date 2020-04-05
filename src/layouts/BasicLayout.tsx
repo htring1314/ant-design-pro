@@ -18,7 +18,7 @@ import RightContent from '@/components/GlobalHeader/RightContent';
 import { connect } from 'dva';
 import { formatMessage } from 'umi-plugin-react/locale';
 import { isAntDesignPro } from '@/utils/utils';
-import logo from '../assets/logo.svg';
+import logo from '../assets/google-play-store.svg';
 
 export interface BasicLayoutProps extends ProLayoutProps, ConnectProps {
   breadcrumbNameMap: {

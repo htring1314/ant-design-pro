@@ -93,6 +93,10 @@ export default {
           icon: 'windows',
           routes: [
             {
+              path: '/hooks',
+              redirect: '/hooks/useState',
+            },
+            {
               path: '/hooks/useState',
               name: 'state',
               icon: 'chrome',
