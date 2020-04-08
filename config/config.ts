@@ -88,6 +88,12 @@ export default {
           component: './Welcome',
         },
         {
+          path: '/skill',
+          name: 'skill',
+          icon: 'laptop',
+          component: './skill',
+        },
+        {
           path: '/hooks',
           name: 'hooks',
           icon: 'windows',

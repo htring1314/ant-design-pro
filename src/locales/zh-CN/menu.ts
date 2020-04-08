@@ -47,6 +47,7 @@ export default {
   'menu.editor.flow': '流程编辑器',
   'menu.editor.mind': '脑图编辑器',
   'menu.editor.koni': '拓扑编辑器',
+  'menu.skill': '技巧',
   'menu.hooks': 'Hooks',
   'menu.hooks.state': 'UseState',
   'menu.hooks.effect': 'UseEffect',
