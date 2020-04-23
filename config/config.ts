@@ -109,6 +109,12 @@ export default {
               component: './hooks/UseState',
             },
             {
+              path: '/hooks/useStateNew',
+              name: 'stateNew',
+              icon: 'ie',
+              component: './hooks/UseStateNew',
+            },
+            {
               path: '/hooks/useEffect',
               name: 'effect',
               icon: 'github',

@@ -50,6 +50,7 @@ export default {
   'menu.skill': '技巧',
   'menu.hooks': 'Hooks',
   'menu.hooks.state': 'UseState',
+  'menu.hooks.stateNew': 'UseStateNew',
   'menu.hooks.effect': 'UseEffect',
   'menu.hooks.layoutEffect': 'UseLayoutEffect',
   'menu.hooks.callback': 'UseCallBack',

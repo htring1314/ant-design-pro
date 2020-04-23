@@ -147,20 +147,29 @@ function UseState(props) {
     >
       <div style={{ paddingTop: 15 }}>
         <Form onSubmit={handleSubmit} style={{ marginTop: 8 }}>
-          <Form.Item {...formItemLayout} label={formatMessage({ id: 'useState.startEnd' })}>
-            {getFieldDecorator('startDate')(
-              <DatePicker
-                placeholder={formatMessage({ id: 'useState.start.select' })}
-                style={{ width: '50%' }}
-              />,
-            )}
-            {getFieldDecorator('endDate')(
-              <DatePicker
-                placeholder={formatMessage({ id: 'useState.start.select' })}
-                style={{ width: '50%' }}
-              />,
-            )}
-          </Form.Item>
+          <Row>
+            <Col span={12}>
+              <Form.Item {...formItemLayout} label={formatMessage({ id: 'useState.startEnd' })}>
+                {getFieldDecorator('startDate')(
+                  <DatePicker
+                    placeholder={formatMessage({ id: 'useState.start.select' })}
+                    style={{ width: '100%' }}
+                  />,
+                )}
+              </Form.Item>
+            </Col>
+            <Col span={12}>
+              <Form.Item wrapperCol={{ span: 24 }}>
+                {getFieldDecorator('endDate')(
+                  <DatePicker
+                    placeholder={formatMessage({ id: 'useState.start.select' })}
+                    style={{ width: '100%' }}
+                  />,
+                )}
+              </Form.Item>
+            </Col>
+          </Row>
+
           <Form.Item {...formItemLayout} label={formatMessage({ id: 'useState.frequency.select' })}>
             <Row>
               <Col span={selectSpan}>
