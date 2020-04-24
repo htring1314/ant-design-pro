@@ -18,7 +18,7 @@ export default () => {
     };
   }, []);
 
-  // 此时即使设置count，但是拿到的还是之前的状态
+   // 此时即使设置count，但是拿到的还是之前的状态，依赖数组中数据类型为基本类型string、int、symbol等
   useEffect(() => {
     message.info(`count发生变化，就要执行，count： ${count}`, 9);
     setTimeout(() => {
