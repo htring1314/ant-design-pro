@@ -3,13 +3,29 @@ import React, { useState, useEffect } from 'react';
 import { Spin, Button, message } from 'antd';
 import styles from './index.less';
 
-export default () => {
+let renderCount = 1;
+
+export default function MyUseEffect(props) {
+  renderCount += 1;
+  const [everyLoading, setEveryLoading] = useState(true);
   const [loading, setLoading] = useState(true);
-  const [counting, setCounting] = useState(false);
+  const [countLoading, setCountLoading] = useState(false);
   const [count, setCount] = useState(1);
 
+  // 依赖数组为空，则仅在首次初始化时调用，后续rerender时不执行
   useEffect(() => {
-    message.success('只在组件初始化时执行', 9);
+    message.success(`组件每次渲染，都要执行，执行次数：${renderCount} 次`, 4);
+    setTimeout(() => {
+      setEveryLoading(false);
+    }, 500);
+    return () => {
+      message.warn('everyLoading——组件销毁时，就销毁');
+    };
+  });
+
+  // 依赖数组为空，则仅在首次初始化时调用，后续rerender时不执行
+  useEffect(() => {
+    message.success('只在组件初始化时执行', 4);
     setTimeout(() => {
       setLoading(false);
     }, 500);
@@ -18,23 +34,27 @@ export default () => {
     };
   }, []);
 
-   // 此时即使设置count，但是拿到的还是之前的状态，依赖数组中数据类型为基本类型string、int、symbol等
+  // 此时即使设置count，但是拿到的还是之前的状态，依赖数组中数据类型为基本类型string、int、symbol等
   useEffect(() => {
-    message.info(`count发生变化，就要执行，count： ${count}`, 9);
+    message.info(`count发生变化，就要执行，count： ${count}`, 4);
     setTimeout(() => {
-      setCounting(false);
+      setCountLoading(false);
     }, 500);
     return () => {
-      message.warn(`我重新执行时就会销毁上一个useEffect，销毁时，count=${count}`, 9);
+      message.warn(`重新render时就会销毁上一个useEffect，销毁时，count=${count}`, 4);
     };
   }, [count]);
 
   const handleAlertClick = () => {
-    message.info(`单击时，此时count=${count}`, 9);
+    message.info(`单击时，此时count=${count}`, 4);
   };
 
-  const changeLoading = () => {
-    setCounting(true);
+  const changeEveryLoading = () => {
+    setEveryLoading(true);
+  };
+
+  const changeCount = () => {
+    setCountLoading(true);
     setCount(count + 1);
   };
 
@@ -44,16 +64,24 @@ export default () => {
         {loading ? (
           <Spin spinning={loading} size="large"></Spin>
         ) : (
-          <div>
-            <Button type="primary" onClick={changeLoading} loading={counting}>
+          <div style={{ paddingBottom: '1rem' }}>
+            <Button type="primary" onClick={changeCount} loading={countLoading}>
               此时count：{count}
             </Button>
             <Button className={styles.marginLeftHalf} type="danger" onClick={handleAlertClick}>
-              点击一下
+              展示当前count
+            </Button>
+            <Button
+              className={styles.marginLeftHalf}
+              type="danger"
+              onClick={changeEveryLoading}
+              loading={everyLoading}
+            >
+              everyLoading
             </Button>
           </div>
         )}
       </div>
     </PageHeaderWrapper>
   );
-};
+}
