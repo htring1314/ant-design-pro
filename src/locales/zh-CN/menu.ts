@@ -52,6 +52,7 @@ export default {
   'menu.hooks.state': 'UseState',
   'menu.hooks.stateNew': 'UseStateNew',
   'menu.hooks.effect': 'UseEffect',
+  'menu.hooks.context': 'UseContext',
   'menu.hooks.layoutEffect': 'UseLayoutEffect',
   'menu.hooks.callback': 'UseCallBack',
   'menu.hooks.ref': 'UseRef',

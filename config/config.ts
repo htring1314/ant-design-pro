@@ -120,6 +120,30 @@ export default {
               icon: 'github',
               component: './hooks/UseEffect',
             },
+            {
+              path: '/hooks/useContext',
+              name: 'context',
+              icon: 'slack',
+              component: './hooks/UseContext',
+            },
+            {
+              path: '/hooks/useRef',
+              name: 'ref',
+              icon: 'codepen',
+              component: './hooks/useRef',
+            },
+            {
+              path: '/hooks/useCallback',
+              name: 'callback',
+              icon: 'gitlab',
+              component: './hooks/UseCallback',
+            },
+            {
+              path: '/hooks/useMemo',
+              name: 'memo',
+              icon: 'dropbox',
+              component: './hooks/UseMemo',
+            },
             // {
             //   path: '/hooks/useCallback',
             //   name: 'callback',
