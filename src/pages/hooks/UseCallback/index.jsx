@@ -30,13 +30,8 @@ function MyUseCallback(props) {
   }, [count1]);
 
   useEffect(() => {
-    console.info('%c增加54一次，此后便不再执行', 'color:tomato');
-    handleClickButton2(54);
-  }, [handleClickButton2]);
-
-  useEffect(() => {
-    console.info(`%c增加34一次，此后便不再执行:${moment()}`, 'color:tomato');
-    handleClickButton2(34);
+    console.info('%c增加count3一次，此后便不再执行', 'color:tomato');
+    handleClickButton2();
   }, [handleClickButton2]);
 
   useEffect(() => {

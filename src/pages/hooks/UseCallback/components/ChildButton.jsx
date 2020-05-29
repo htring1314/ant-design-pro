@@ -6,12 +6,14 @@ import moment from 'moment';
 import styles from '../index.less';
 
 const ChildButton = ({ onClickButton, children, type }) => {
+  const randomDouble = Math.random();
   return (
     <div style={{ margin: '20px 20px' }}>
       <Button onClick={onClickButton} style={{ marginRight: '20px' }} type={type}>
         {children}
       </Button>
-      <span>{Math.random()}</span>
+      <span>{`return 内部计算值：${Math.random()}`}</span>
+      <span>{`return 外部计算值：${randomDouble}`}</span>
     </div>
   );
 };
