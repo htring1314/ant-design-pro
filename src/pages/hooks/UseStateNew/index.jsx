@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { formatMessage } from 'umi-plugin-react/locale';
 import {
   Button,
@@ -79,6 +79,8 @@ function UseStateNew(props) {
     hometown: 'unknown',
   });
 
+  const lastCount = useRef(count);
+
   // 响应年龄+1
   const changeAge = () => {
     message.success(`年龄变化之前我的年龄是：${age}`);
@@ -112,11 +114,18 @@ function UseStateNew(props) {
   };
 
   const changeCount = () => {
-    setCount(prev => 3 * prev);
+    // lastCount.current = count;
+    setCount(prev => {
+      lastCount.current = 3 * prev;
+      return 3 * prev;
+    });
     console.info('此时输出的count=', count);
     setTimeout(() => {
       console.info('通过setTimeout此时输出的count=', count);
-    }, 100);
+    }, 0);
+    setTimeout(() => {
+      console.info('通过lastCount.current此时输出的count=', lastCount.current);
+    }, 0);
   };
 
   const homeOption = homes.map(home => <Option key={home.value}>{home.name}</Option>);
