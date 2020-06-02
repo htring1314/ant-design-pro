@@ -13,11 +13,15 @@ export default class CountClass extends Component {
   componentDidUpdate() {
     setTimeout(() => {
       console.log(`You clicked ${this.state.count} times`);
-    }, 3000);
+    }, 0);
   }
 
   changeCount = count => {
     this.setState({ count });
+    console.info(`class组件count=${this.state.count}`);
+    setTimeout(() => {
+      console.info(`class组件setTimeout后count=${this.state.count}`);
+    }, 0);
   };
 
   render() {
@@ -25,6 +29,7 @@ export default class CountClass extends Component {
     return (
       <div className={styles.paddingBottom1rem}>
         <p>Class=&gt;You clicked {count} times</p>
+        <Button onClick={() => this.changeCount(count + 1)}>Class Click me</Button>
         <Button onClick={() => this.changeCount(count + 1)}>Class Click me</Button>
       </div>
     );

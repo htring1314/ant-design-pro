@@ -57,7 +57,7 @@ const generateHometown = () => {
 
 // 当前组件开始的地方
 function UseStateNew(props) {
-  console.info(`组件渲染起来: ${moment()}，次数：${renderCount}`);
+  // console.info(`组件渲染起来: ${moment()}，次数：${renderCount}`);
   renderCount += 1;
 
   const [age, setAge] = useState(12);
@@ -111,12 +111,24 @@ function UseStateNew(props) {
     setNewPerson({ name: inputName });
   };
 
+  const changeCount = () => {
+    setCount(prev => 3 * prev);
+    console.info('此时输出的count=', count);
+    setTimeout(() => {
+      console.info('通过setTimeout此时输出的count=', count);
+    }, 100);
+  };
+
   const homeOption = homes.map(home => <Option key={home.value}>{home.name}</Option>);
 
   // 展开用户信息
-  const unfoldPerson = (person = {}) => Object.entries(person).reduce((str, [k, v]) => `${str}
-  ${k} : ${v} `, '新人信息：');
-  console.info(unfoldPerson(newPerson));
+  const unfoldPerson = (person = {}) =>
+    Object.entries(person).reduce(
+      (str, [k, v]) => `${str}
+  ${k} : ${v} `,
+      '新人信息：',
+    );
+  // console.info(unfoldPerson(newPerson));
 
   return (
     <React.Fragment>
@@ -124,7 +136,7 @@ function UseStateNew(props) {
         <DingtalkOutlined /> 此时的计数器：{count}
       </div>
       <div className={styles.marginTop1rem}>
-        <Button type="danger" onClick={() => setCount(count * 3)}>
+        <Button type="danger" onClick={changeCount}>
           是时候翻3倍
         </Button>
       </div>
@@ -184,9 +196,7 @@ function UseStateNew(props) {
           {homeOption}
         </Select>
       </div>
-      <div>
-        {unfoldPerson(newPerson)}
-      </div>
+      <div>{unfoldPerson(newPerson)}</div>
     </React.Fragment>
   );
 }
