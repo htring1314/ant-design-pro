@@ -14,9 +14,22 @@ function MyUseRef(props) {
   const h1Ref = useRef();
   const inputRef = useRef();
   const childRef = useRef();
+  // console.info(h1Ref.current, '----------------------');
+
+  const handleScroll = () => {
+    const { top } = h1Ref.current.getBoundingClientRect();
+    if (top < 10) {
+      console.info('快要不见了>>>>>>>>>>>>>>>', top);
+    }
+    // console.info('滚动舰艇>>>>>>>>>>>>>>');
+  };
 
   useEffect(() => {
-    console.info('useRef:', h1Ref.current);
+    console.info('useRef:', h1Ref.current.getBoundingClientRect());
+    window.addEventListener('scroll', handleScroll, true);
+    return () => {
+      window.removeEventListener('scroll', handleScroll, true);
+    };
   }, []);
 
   const handleFocus = () => {
