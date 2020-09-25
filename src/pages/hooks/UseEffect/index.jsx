@@ -1,7 +1,7 @@
 import { PageHeaderWrapper } from '@ant-design/pro-layout';
 import React, { useState, useEffect, useCallback } from 'react';
 import { Spin, Button, message } from 'antd';
-import axios from 'axios';
+// import axios from 'axios';
 import moment from 'moment';
 import CountClass from './components/CountClass';
 import CountFunction from './components/CountFunction';
@@ -71,9 +71,9 @@ export default function MyUseEffect(props) {
     );
     const fetchData = async () => {
       try {
-        const result = await axios(
-          'https://api.jisuapi.com/cidian/word?appkey=1c865fd974fa0dbb&word=好像',
-        );
+        // const result = await axios(
+        //   'https://api.jisuapi.com/cidian/word?appkey=1c865fd974fa0dbb&word=好像',
+        // );
         console.info(`拼音为：${result.result.pinyin}`);
       } catch (error) {
         console.error('请求失败~');

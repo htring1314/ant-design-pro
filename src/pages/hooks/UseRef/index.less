@@ -8,3 +8,47 @@
 .rightButton {
   .margin-1rem-left();
 }
+
+.flexParent1 {
+  display: flex;
+  margin-top: 20px;
+  .flexItem1 {
+    // 将flex-grow重置为0，以防止项目宽度超过50%。
+    // flex-basis 设置为 100%，会怎么样？该项目单独占一行，其他项目将换行。
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 50%;
+    background-color: aquamarine;
+    padding: 10px 10px;
+  }
+  .flexItem2 {
+    flex-grow: 1;
+    background-color: antiquewhite;
+    padding: 10px 10px;
+  }
+  .flexItem3 {
+    flex-grow: 1;
+    background-color: tomato;
+    padding: 10px 10px;
+  }
+}
+
+.flexParent2 {
+  display: flex;
+  margin-top: 20px;
+  .flexItem1 {
+    flex: 1;
+    background-color: aquamarine;
+    padding: 10px 10px;
+  }
+  .flexItem2 {
+    flex: 1;
+    background-color: antiquewhite;
+    padding: 10px 10px;
+  }
+  .flexItem3 {
+    flex: 1;
+    background-color: tomato;
+    padding: 10px 10px;
+  }
+}

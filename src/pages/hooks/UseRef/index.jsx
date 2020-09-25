@@ -25,7 +25,7 @@ function MyUseRef(props) {
 
   const changeChildCount = () => {
     childRef.current.changeCount();
-  }
+  };
 
   return (
     <PageHeaderWrapper
@@ -40,7 +40,20 @@ function MyUseRef(props) {
       </Button>
       <Input ref={inputRef}></Input>
       <Child ref={childRef} />
-      <Button type="danger" onClick={changeChildCount} style={{ margin: '1rem 1rem' }}>父组件调用子组件方法</Button>
+      <Button type="danger" onClick={changeChildCount} style={{ margin: '1rem 1rem' }}>
+        父组件调用子组件方法
+      </Button>
+      <h1 style={{ paddingTop: 40 }}>我是flex</h1>
+      <div className={styles.flexParent1}>
+        <div className={styles.flexItem1}>aquamarine</div>
+        <div className={styles.flexItem2}>antiquewhite</div>
+        <div className={styles.flexItem3}>tomato</div>
+      </div>
+      <div className={styles.flexParent2}>
+        <div className={styles.flexItem1}>aquamarine</div>
+        <div className={styles.flexItem2}>antiquewhite</div>
+        <div className={styles.flexItem3}>tomato</div>
+      </div>
     </PageHeaderWrapper>
   );
 }
