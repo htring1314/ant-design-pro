@@ -94,6 +94,12 @@ export default {
           component: './skill',
         },
         {
+          path: '/cssExp',
+          name: 'cssExp',
+          icon: 'laptop',
+          component: './cssExp',
+        },
+        {
           path: '/hooks',
           name: 'hooks',
           icon: 'windows',

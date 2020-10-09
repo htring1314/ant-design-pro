@@ -1,0 +1,44 @@
+// 毛玻璃
+.pubPosition {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.glassWrap {
+  width: 960px;
+  height: 540px;
+  margin: 200px auto;
+  background: url(../../assets/background/dingman.jpg) no-repeat;
+  background-size: contain;
+  position: relative;
+}
+
+.wordWrap,
+.content {
+  width: 800px;
+  height: 400px;
+  text-align: center;
+  line-height: 400px;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* 这里使用同级元素解决文字容器做滤镜被覆盖的问题 */
+.wordWwrap::before {
+  content: '';
+  width: 1000px;
+  height: 540px;
+  position: absolute;
+  left: 300px; /* 这个值影响背景图片的位置 */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  filter: blur(100px);
+  background: url(../../assets/background/dingman.jpg) no-repeat -52.5px 0;
+  background-size: contain;
+}

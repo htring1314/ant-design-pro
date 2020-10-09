@@ -48,6 +48,7 @@ export default {
   'menu.editor.mind': '脑图编辑器',
   'menu.editor.koni': '拓扑编辑器',
   'menu.skill': '技巧',
+  'menu.cssExp': 'CSS实例',
   'menu.hooks': 'Hooks',
   'menu.hooks.state': 'UseState',
   'menu.hooks.stateNew': 'UseStateNew',
