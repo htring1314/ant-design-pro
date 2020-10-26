@@ -42,3 +42,64 @@
   background: url(../../assets/background/dingman.jpg) no-repeat -52.5px 0;
   background-size: contain;
 }
+
+.noAbsoluteDiv {
+  border: 3px solid #1890ff;
+}
+
+.withAbsoluteDiv {
+  border: 3px dashed #e1622f;
+  //position: absolute;
+  position: relative;
+  display: inline-block;
+  //width: 350px;
+}
+
+.imgAbsolute {
+  position: absolute;
+}
+
+.badgeDigit {
+  border: 1px solid #b7d28d;
+  background-color: #f00;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  right: -15px;
+  top: -15px;
+  font-size: 18px;
+}
+
+.badgeDigit2 {
+  border: 1px solid #b7d28d;
+  background-color: #f00;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  margin: -15px -15px 0 0;
+  //right: -15px;
+  //top: -15px;
+}
+
+.cover {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: white;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+.withFloat {
+  border: 3px solid yellowgreen;
+  //float: left;
+}
